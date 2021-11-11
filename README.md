@@ -4,7 +4,11 @@ This project is a web interface for [testssl.sh](https://testssl.sh/). It can be
 
 ## Installation
 
-1. docker run -p 5000:5000 testssl.sh-web:latest
+`docker run -p 5000:5000 mailsvb/testssl.sh-web:latest`
+
+In case you need to validate against specific root certificates, you can mount a folder containing your root certificates (*.pem) into the container. E.g.
+
+`docker run -p 5000:5000 -v /your/certificates/folder/:/etc/ssl/certs/ mailsvb/testssl.sh-web:latest`
 
 ## NGINX Reverse Proxy
 
