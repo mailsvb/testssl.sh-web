@@ -25,7 +25,7 @@ application = Flask(__name__)
 
 ### Configuration ###
 checkCmd = "/testssl.sh/testssl.sh"
-checkArgs = ["--quiet --openssl /usr/bin/openssl"]
+checkArgs = ["--quiet", "--openssl=/usr/bin/openssl", "--add-ca=/etc/ssl/certs/"]
 checkTimeout = int(os.environ.get("CHECKTIMEOUT", default=300))
 testsslDebug = int(os.environ.get("TESTSSLDEBUG", default=0))
 rendererCmd = "aha"
