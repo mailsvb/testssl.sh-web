@@ -80,10 +80,6 @@ def main():
             flash("Wrong protocol!")
             ok = False
 
-        if not ('confirm' in request.form and request.form['confirm'] == "yes"):
-            flash("You must confirm that you are authorized to scan the given system!")
-            ok = False
-
         # Perform preflight request to prevent that testssl.sh runs into long timeout
         if ok and preflightRequest:
             try:
