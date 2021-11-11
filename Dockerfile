@@ -12,6 +12,7 @@ RUN apk update && apk upgrade && \
     git clone --depth 1 https://github.com/drwetter/testssl.sh.git /testssl.sh && \
     apk del py3-pip git
 
+RUN ln -s /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.pem
 WORKDIR /testssl
 EXPOSE 5000
 CMD python SSLTestPortal.py
