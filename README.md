@@ -1,14 +1,10 @@
 # Web Front End for testssl.sh
 
-This project is a web interface for [testssl.sh](https://testssl.sh/). It can be used to offer internal TLS/SSL configuration check portals, whereever the usual public tools are not applicable.
+This project is a web interface for [testssl.sh](https://testssl.sh/). It can be used to offer internal TLS/SSL configuration check portals, whereever the usual public tools are not applicable. It is available as Docker image.
 
 ## Installation
 
-1. Clone the [testssl.sh-webfrontend](https://github.com/TKCERT/testssl.sh-webfrontend) repository with its main dependency [testssl.sh](https://github.com/drwetter/testssl.sh) by invocation of `git clone --recursive https://github.com/TKCERT/testssl.sh-webfrontend.git`.
-2. Install Python 3 (`apt-get install python3`) and the Python module Flask by running `pip3 install flask`.
-3. Install [aha](https://github.com/theZiz/aha) (`apt-get install aha`)
-4. Configure SSLTestPortal.py, especially application.secret\_key, in its configuration section and create the required paths (log, result/html and result/json in the default configuration).
-5. Run SSLTestPortal.py or deploy it as WSGI script.
+1. docker run -p 5000:5000 testssl.sh-web:latest
 
 ## NGINX Reverse Proxy
 
@@ -26,10 +22,3 @@ If you want to add security to it look at nginx module [basic_auth](http://nginx
           proxy_read_timeout 200;     # you might need to increase these values depending on your server hardware. 
           send_timeout 200;           # you might need to increase these values depending on your server hardware. 
      }
-
-You still have to autostart the script on boot. This can be done manually in a screen.
-
-## Docker
-
-Markus Kraus ([@vMarkus_K](https://twitter.com/vMarkus_K)) created a [Docker
-Image](https://hub.docker.com/r/mycloudrevolution/testssl-webfrontend/).
