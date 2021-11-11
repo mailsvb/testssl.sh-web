@@ -25,14 +25,14 @@ application = Flask(__name__)
 
 ### Configuration ###
 checkCmd = "/testssl.sh/testssl.sh"
-checkArgs = ["--quiet"]
+checkArgs = ["--quiet --openssl /usr/bin/openssl"]
 checkTimeout = int(os.environ.get("CHECKTIMEOUT", default=300))
 testsslDebug = int(os.environ.get("TESTSSLDEBUG", default=0))
 rendererCmd = "aha"
 rendererArgs = ["-n"]
 rendererTimeout = 30
 protocols = ["ftp", "smtp", "pop3", "imap", "xmpp", "telnet", "ldap"]
-scantypes = ["certonly", "normal", "full"]
+scantypes = ["normal", "quick"]
 reHost = re.compile("^[a-zA-Z0-9_][a-zA-Z0-9_\-]+(\.[a-zA-Z0-9_\-]+)*$")
 preflightRequest = True
 preflightTimeout = 10
@@ -103,11 +103,8 @@ def main():
         if scantype == "normal":
             testssl_args.append("--ids-friendly")
 
-        if scantype == "certonly":
+        if scantype == "quick":
             testssl_args.append("--server-defaults")
-
-        # if scantype is "full"
-        # nothing is to be done
 
         if starttls:
             testssl_args.append("-t")
