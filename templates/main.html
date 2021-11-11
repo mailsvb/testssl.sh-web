@@ -16,11 +16,11 @@ function progressContinue() {
 <div>
 <form method="POST" class="form-horizontal">
     <div class="form-group">
-        <h1><span class="label label-default col-sm-8">TLS/SSL Test Portal</span></h1>
+        <h1><span class="label label-default col-sm-12">TLS/SSL Test Portal</span></h1>
     </div>
     <div class="form-group">
         {% for message in get_flashed_messages() %}
-        <div class="alert alert-danger col-sm-8">{{ message }}</div>
+        <div class="alert alert-danger col-sm-12">{{ message }}</div>
         {% endfor %}
     </div>
 
@@ -61,12 +61,6 @@ function progressContinue() {
                 <option value="telnet">telnet</option>
                 <option value="ldap">ldap</option>
             </select>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-4 control-label">I confirm that I am authorized to scan this system:</label>
-        <div class="col-sm-4">
-            <input type="checkbox" name="confirm" value="yes">
         </div>
     </div>
     <div class="form-group">
