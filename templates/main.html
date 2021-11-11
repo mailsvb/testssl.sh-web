@@ -41,9 +41,8 @@ function progressContinue() {
     <div class="form-group">
         <label class="col-sm-4 control-label">Type of scan:</label>
         <div class="col-sm-4">
-		<input type="radio" name="scantype" value="certonly" id="certonly" checked> Test server defaults and certificate expiry/chain.<br>
-		<input type="radio" name="scantype" value="normal" id="normal"> Normal scan.<br>
-		<input type="radio" name="scantype" value="full" id="full"> Use vulnerability checks which may cause IDSs to block the scanning IP.<br>
+		<input type="radio" name="scantype" value="normal" id="normal" checked> Normal scan.<br>
+		<input type="radio" name="scantype" value="certonly" id="quick"> Quick scan, check certificate expiry.<br>
         </div>
     </div>
 
