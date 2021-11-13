@@ -1,5 +1,9 @@
 # Web Front End for testssl.sh
 
+[![GitHub Workflow - CI](https://github.com/mailsvb/testssl.sh-web/workflows/build/badge.svg)](https://github.com/mailsvb/testssl.sh-web/actions?workflow=build)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/mailsvb/testssl.sh-web)](https://github.com/mailsvb/testssl.sh-web/releases/latest)
+[![Docker Image Size (latest semver)](https://img.shields.io/docker/image-size/mailsvb/testssl.sh-web?sort=semver)](https://hub.docker.com/repository/docker/mailsvb/testssl.sh-web)
+
 This project is a web interface for [testssl.sh](https://testssl.sh/). It can be used to offer internal TLS/SSL configuration check portals, whereever the usual public tools are not applicable. It is available as Docker image.
 
 ## Installation
