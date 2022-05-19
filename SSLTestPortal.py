@@ -25,7 +25,7 @@ application = Flask(__name__)
 
 ### Configuration ###
 checkCmd = "/testssl.sh/testssl.sh"
-checkArgs = ["--quiet", "--openssl=/usr/bin/openssl", "--add-ca=/etc/ssl/certs"]
+checkArgs = ["--quiet", "--add-ca=/etc/ssl/certs/ca-certificates.pem"]
 checkTimeout = int(os.environ.get("CHECKTIMEOUT", default=300))
 testsslDebug = int(os.environ.get("TESTSSLDEBUG", default=0))
 rendererCmd = "aha"
@@ -101,17 +101,22 @@ def main():
         testssl_args.append("--debug="+str(testsslDebug))
 
         if scantype == "normal":
-            testssl_args.append("--ids-friendly")
+            testssl_args.append("--protocols")
+            testssl_args.append("--cipher-per-proto")
+            testssl_args.append("--fs")
+            testssl_args.append("--rc4")
+            testssl_args.append("--vulnerable")
 
         if scantype == "quick":
+            testssl_args.append("--protocols")
+            testssl_args.append("--cipher-per-proto")
             testssl_args.append("--server-defaults")
 
         if starttls:
             testssl_args.append("-t")
             testssl_args.append(protocol)
+
         testssl_args.append(host + ":" + str(port))
-
-
         # Build render command line
         render_args = [rendererCmd]
         render_args += rendererArgs

@@ -6,10 +6,10 @@ ADD templates /testssl/templates
 ADD SSLTestPortal.py /testssl/SSLTestPortal.py
 
 RUN apk update && apk upgrade && \
-    apk add --update --no-cache python3 py3-pip aha git bash coreutils procps openssl bind-tools && \
+    apk add --update --no-cache python3 py3-pip aha git bash coreutils procps && \
     ln -sf python3 /usr/bin/python && \
     pip3 install flask &&\
-    git clone --depth 1 https://github.com/drwetter/testssl.sh.git /testssl.sh && \
+    git clone --depth 1 --branch v3.0.7 https://github.com/drwetter/testssl.sh.git /testssl.sh && \
     apk del py3-pip git
 
 RUN ln -s /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.pem
