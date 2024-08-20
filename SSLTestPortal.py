@@ -12,7 +12,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from flask import Flask, Response, request, redirect, session, render_template, url_for, flash, escape, stream_with_context
+from flask import Flask, Response, request, redirect, session, render_template, url_for, flash, stream_with_context
+from markupsafe import escape
 import os
 from os import urandom
 from subprocess import Popen, PIPE, CalledProcessError, TimeoutExpired
@@ -33,7 +34,7 @@ rendererArgs = ["-n"]
 rendererTimeout = 30
 protocols = ["ftp", "smtp", "pop3", "imap", "xmpp", "telnet", "ldap"]
 scantypes = ["normal", "quick"]
-reHost = re.compile("^[a-zA-Z0-9_][a-zA-Z0-9_\-]+(\.[a-zA-Z0-9_\-]+)*$")
+reHost = re.compile("^[a-zA-Z0-9_][a-zA-Z0-9_-]+(\x2E[a-zA-Z0-9_-]+)*$")
 preflightRequest = True
 preflightTimeout = 10
 application.debug = False
